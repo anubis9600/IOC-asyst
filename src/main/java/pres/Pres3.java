@@ -3,12 +3,12 @@ package pres;
 import dao.IDao;
 import metier.IMetier;
 
-import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Scanner;
 
 public class Pres3 {
     public static void main(String[] args) throws Exception {
+        System.out.println("Injection avec instanciation dynamique");
         // FileNotFoundException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException
         Scanner scanner = new Scanner(System.in);
 

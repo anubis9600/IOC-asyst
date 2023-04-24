@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Pres2 {
     public static void main(String[] args) throws Exception {
+        System.out.println("Injection avec le fichier");
         // FileNotFoundException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException
         Scanner scanner = new Scanner(new File("config.txt"));
 
@@ -20,11 +21,11 @@ public class Pres2 {
         // MetierImpl metier = new MetierImpl();
         String metierClassName = scanner.nextLine();
         Class cMetier = Class.forName(metierClassName);
-        IMetier metier = (IMetier) cMetier.getConstructor().newInstance(); // Instanciation dynamique
+        IMetier metier = (IMetier) cMetier.getConstructor(IDao.class).newInstance(dao); // Instanciation dynamique
 
         // metier.setDao(dao)
-        Method setDao = cMetier.getDeclaredMethod("setDao", IDao.class);
-        setDao.invoke(metier, dao); // Injection des dépendances
+        //Method setDao = cMetier.getDeclaredMethod("setDao", IDao.class);
+        //setDao.invoke(metier, dao); // Injection des dépendances
 
         System.out.println(metier.natureData());
         System.out.println(metier.calcul());

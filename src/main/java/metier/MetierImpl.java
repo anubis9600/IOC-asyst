@@ -1,9 +1,24 @@
 package metier;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import dao.IDao;
 
+// @Component
+@Service
 public class MetierImpl implements IMetier {
+
+    // @Autowired
+    // @Qualifier("vc")
     private IDao dao; // Couplage faible
+
+    // Injection via le constructeur en enlevant l'annotation @Autowired
+    public MetierImpl(IDao dao) {
+        this.dao = dao;
+    }
 
     @Override
     public String version() {

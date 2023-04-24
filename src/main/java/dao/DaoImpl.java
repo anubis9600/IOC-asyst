@@ -1,7 +1,10 @@
 package dao;
 
-import dao.IDao;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
+// @Component("dao")
+@Repository
 public class DaoImpl implements IDao {
 
     @Override
@@ -20,6 +23,6 @@ public class DaoImpl implements IDao {
     @Override
     public String getName() {
 
-        return "DB";
+        return "SQL";
     }
 }

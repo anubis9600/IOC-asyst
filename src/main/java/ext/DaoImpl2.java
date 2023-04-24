@@ -1,7 +1,12 @@
 package ext;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import dao.IDao;
 
+@Component("vws")
+@Repository("vws")
 public class DaoImpl2 implements IDao {
 
     @Override
